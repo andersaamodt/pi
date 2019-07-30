@@ -1,0 +1,13 @@
+[Unit]
+Description=Watch Tap Service
+After=network.target
+Requires=gpio-exporter.service
+After=gpio-exporter.service
+
+[Service]
+User=alarm
+ExecStart=/usr/bin/node /home/alarm/fobtap/index.js
+Restart=on-failure
+
+[Install]
+WantedBy=multi-user.target

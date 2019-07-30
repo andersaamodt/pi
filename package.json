@@ -1,0 +1,24 @@
+{
+  "name": "dctrl-fobtap",
+  "version": "1.0.0",
+  "description": "Part of dctrlapp. Read the member/bounty fobs and handle",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "init": "node ./scripts/initialize.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "colors": "^1.2.1",
+    "evdev": "^0.2.4",
+    "kefir": "^3.8.3",
+    "onoff": "^3.0.2",
+    "prompt": "^1.0.0",
+    "rethinkdb": "^2.3.3",
+    "socket.io-client": "^2.1.0",
+    "superagent": "^3.8.2",
+    "uuid": "^3.2.1"
+  }
+}
