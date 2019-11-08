@@ -11,17 +11,29 @@ const pin17 = new Gpio(17, 'out')
 const pin22 = new Gpio(22, 'in', 'both') // hopperOneCam
 const pin23 = new Gpio(23, 'in', 'both')
 
+const pin4 = new Gpio(4, 'out')
+const pin5 = new Gpio(5, 'out')
+const pin6 = new Gpio(6, 'out')
+const pin7 = new Gpio(7, 'out')
+const pin8 = new Gpio(8, 'out')
+
+const pin13 = new Gpio(13, 'in', 'both')
+const pin14 = new Gpio(14, 'in', 'both')
+const pin15 = new Gpio(15, 'in', 'both')
+const pin16 = new Gpio(16, 'in', 'both')
+const pin17 = new Gpio(17, 'in', 'both')
+
 // pin attached to goal light
 const pin4 = new Gpio(4, 'out')
 
 // pins attached to motor (for safety if motor stays on we can kill)
 
 // XXX - information on empty hoppers
-pin22.watch((err, value) => {
-    if (value == 0){
-        pin17.writeSync(0)
-    }
-})
+// pin22.watch((err, value) => {
+//     if (value == 0){
+//         pin17.writeSync(0)
+//     }
+// })
 
 function checkHopper1 () {
     const promise17 = new Promise((resolve, reject)=> {
@@ -49,18 +61,49 @@ function checkHopper1 () {
 
 
 var emit
+
 var dispenseStream = Kefir.stream(emitter => {
     emit = emitter.emit
 }).skipDuplicates()
   .filter(ev => ev.resourceId === config.resourceId)
   .filter( ev => ev.type === 'resource-used' )
-  .map(ev => (ev.amount || 1))
+  .onValue(vend)
+
+
+function highLow(pin){
+    console.log('pin triggered')
+    pin.writeSync(1)
+    setTimeout( ()=> {
+        pin.writeSync(0)
+    })
+}
+
+function vend(usedEv){
+    console.log("vending:", usedEv)
+    switch (usedEv.notes){
+        case 'A':
+            highLow(pin4)
+            break
+        case 'B':
+            highLow(pin5)
+            break
+        case 'C':
+            highLow(pin6)
+            break
+        case 'D':
+            highLow(pin7)
+            break
+        case 'E':
+            highLow(pin8)
+            break
+    }
+}
 
 module.exports = function( ev ){
     emit(ev)
 }
 
-bitPepsi(dispenseStream)
+// bitPepsi(dispenseStream)
 
 // payment logic recieves stream of payments and ensures payouts are spaced out
 function bitPepsi(paymentStream) {
@@ -110,8 +153,10 @@ function bitPepsi(paymentStream) {
 
     const outputStream = timingLayer
         .filter(status => status.trigger)
-        .onValue(beer)
+        .onValue(vend)
 }
+
+
 
 function beer(){
     console.log('triggering 17 motor, 4 light')
@@ -134,20 +179,20 @@ function beer(){
 
 // [pin17, pin22]
 // [motor, groove]
-function processVend(hopperState) {
-    let hs = (hopperState[0], hopperState[1])
-    switch (hs) {
-        case (0, 0):
-            break
-        case (1, 0):
-            console.log('vending, not in groove')
-            break
-        case (0, 1):
-            console.log('in groove, motor off -- !! bad state')
-            pin17.writeSync(1) // can hopper
-            break
-        case (1, 1):
-            console.log('vending, in groove')
-            break
-    }
-}
+// function processVend(hopperState) {
+//     let hs = (hopperState[0], hopperState[1])
+//     switch (hs) {
+//         case (0, 0):
+//             break
+//         case (1, 0):
+//             console.log('vending, not in groove')
+//             break
+//         case (0, 1):
+//             console.log('in groove, motor off -- !! bad state')
+//             pin17.writeSync(1) // can hopper
+//             break
+//         case (1, 1):
+//             console.log('vending, in groove')
+//             break
+//     }
+// }
