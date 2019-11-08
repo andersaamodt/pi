@@ -19,45 +19,7 @@ const pin15 = new Gpio(15, 'in', 'both')
 const pin16 = new Gpio(16, 'in', 'both')
 const pin17 = new Gpio(17, 'in', 'both')
 
-// pin attached to goal light
-const pin4 = new Gpio(4, 'out')
-
-// pins attached to motor (for safety if motor stays on we can kill)
-
-// XXX - information on empty hoppers
-// pin22.watch((err, value) => {
-//     if (value == 0){
-//         pin17.writeSync(0)
-//     }
-// })
-
-function checkHopper1 () {
-    const promise17 = new Promise((resolve, reject)=> {
-        pin17.read((err, value) => {
-            if (err) {
-                return reject()
-            }
-            resolve(value)
-        })
-    })
-
-    const promise22 = new Promise((resolve, reject)=> {
-        pin22.read((err, value) => {
-            if (err) {
-                return reject()
-            }
-            resolve(value)
-        })
-    })
-
-    return Promise.all([promise17, promise22])
-}
-
-// Stages of Vend
-
-
 var emit
-
 var dispenseStream = Kefir.stream(emitter => {
     emit = emitter.emit
 }).skipDuplicates()
@@ -99,8 +61,32 @@ module.exports = function( ev ){
     emit(ev)
 }
 
-// bitPepsi(dispenseStream)
+function checkHopper1 () {
+    const promise17 = new Promise((resolve, reject)=> {
+        pin17.read((err, value) => {
+            if (err) {
+                return reject()
+            }
+            resolve(value)
+        })
+    })
 
+    const promise22 = new Promise((resolve, reject)=> {
+        pin22.read((err, value) => {
+            if (err) {
+                return reject()
+            }
+            resolve(value)
+        })
+    })
+
+    return Promise.all([promise17, promise22])
+}
+
+// Stages of Vend
+
+
+// bitPepsi(dispenseStream)
 // payment logic recieves stream of payments and ensures payouts are spaced out
 function bitPepsi(paymentStream) {
     var heartbeat
