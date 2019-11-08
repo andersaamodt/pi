@@ -12,6 +12,7 @@ utils.auth(config.brainLocation, config.resourceId, config.secret, (err, token)=
       throw new Error("Unable to authenticate");
   }
 
+  console.log('initializing fobtap reading')
   fobtapStream
     .throttle(2345, {trailing: false})
     .onValue(fob => {
@@ -31,7 +32,9 @@ utils.auth(config.brainLocation, config.resourceId, config.secret, (err, token)=
             })
     })
 
+  console.log('initializing socket to: ', config.brainLocation)
   const socket = io('ws://' + config.brainLocation)
+
   socket.on('connect', ()=> {
       console.log("attempting socket auth ")
       socket.emit('authentication', { token })

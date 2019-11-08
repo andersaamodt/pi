@@ -56,6 +56,7 @@ prompt.get([{
           }
 
           createResource(promptData.admin, token, promptData.name, promptData.charged, (err, resourceInfo)=> {
+
               if (err){
                   console.log('creation failed, odd...')
                   console.log(err)
@@ -81,7 +82,7 @@ prompt.get([{
 })
 
 function createResource(admin, token, name, charged, callback){
-    let resourceId = uuidV1()
+    let resourceId = uuidV4()
     let rawSecret = uuidV4()
     let secret = cryptoUtils.createHash(rawSecret)
     let newResource = {
@@ -89,7 +90,7 @@ function createResource(admin, token, name, charged, callback){
         resourceId,
         name,
         charged,
-        trackStock: true, 
+        trackStock: true,
         secret
     }
     console.log('attempting to create new resource:', name)
