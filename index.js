@@ -48,4 +48,5 @@ utils.auth(config.brainLocation, config.resourceId, config.secret, (err, token)=
           throw new Error('socket disconnected')
       })
   })
+  
 })

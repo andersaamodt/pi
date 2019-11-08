@@ -33,7 +33,7 @@ function highLow(pin){
     pin.writeSync(1)
     setTimeout( ()=> {
         pin.writeSync(0)
-    })
+    }, 1000)
 }
 
 function vend(usedEv){
