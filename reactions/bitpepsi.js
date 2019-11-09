@@ -23,6 +23,14 @@ const pin15 = new Gpio(15, 'in', 'both')
 const pin16 = new Gpio(16, 'in', 'both')
 const pin17 = new Gpio(17, 'in', 'both')
 
+setLow(pin2)
+setLow(pin3)
+setLow(pin4)
+setLow(pin5)
+setLow(pin6)
+setLow(pin7)
+setLow(pin8)
+
 var emit
 var dispenseStream = Kefir.stream(emitter => {
     emit = emitter.emit
@@ -31,6 +39,9 @@ var dispenseStream = Kefir.stream(emitter => {
   .filter( ev => ev.type === 'resource-used' )
   .onValue(vend)
 
+function setLow(pin){
+    pin.writeSync(0)
+}
 
 function highLow(pin){
     console.log('pin triggered')
