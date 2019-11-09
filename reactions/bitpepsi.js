@@ -50,10 +50,10 @@ function vend(usedEv){
             highLow(pin5)
             break
         case 'C':
-            highLow(pin2)
+            highLow(pin6)
             break
         case 'D':
-            highLow(pin3)
+            highLow(pin7)
             break
         case 'E':
             highLow(pin8)
