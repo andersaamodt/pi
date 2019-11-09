@@ -7,6 +7,10 @@ const Gpio = require('onoff').Gpio
 const pin22 = new Gpio(22, 'in', 'both') // hopperOneCam
 const pin23 = new Gpio(23, 'in', 'both')
 
+
+const pin2 = new Gpio(2, 'out')
+const pin3 = new Gpio(3, 'out')
+
 const pin4 = new Gpio(4, 'out')
 const pin5 = new Gpio(5, 'out')
 const pin6 = new Gpio(6, 'out')
@@ -46,10 +50,10 @@ function vend(usedEv){
             highLow(pin5)
             break
         case 'C':
-            highLow(pin6)
+            highLow(pin2)
             break
         case 'D':
-            highLow(pin7)
+            highLow(pin3)
             break
         case 'E':
             highLow(pin8)
