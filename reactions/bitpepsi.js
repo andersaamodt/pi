@@ -3,11 +3,6 @@ const config = require('../configuration')
 const Kefir = require('kefir')
 const Gpio = require('onoff').Gpio
 
-// pins attached to hopper empty reader // 22 - hopper 1
-const pin22 = new Gpio(22, 'in', 'both') // hopperOneCam
-const pin23 = new Gpio(23, 'in', 'both')
-
-
 const pin2 = new Gpio(2, 'out')
 const pin3 = new Gpio(3, 'out')
 
@@ -30,7 +25,6 @@ const pin17 = new Gpio(17, 'in', 'both')
 const pin18 = new Gpio(18, 'out')
 const pin19 = new Gpio(19, 'out')
 const pin20 = new Gpio(20, 'out')
-const pin21 = new Gpio(21, 'out')
 const pin21 = new Gpio(21, 'out')
 const pin22 = new Gpio(22, 'out')
 const pin23 = new Gpio(23, 'out')
