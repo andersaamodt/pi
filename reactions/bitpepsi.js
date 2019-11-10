@@ -5,7 +5,6 @@ const Gpio = require('onoff').Gpio
 
 const pin2 = new Gpio(2, 'out')
 const pin3 = new Gpio(3, 'out')
-
 const pin4 = new Gpio(4, 'out')
 const pin5 = new Gpio(5, 'out')
 const pin6 = new Gpio(6, 'out')
@@ -15,19 +14,17 @@ const pin9 = new Gpio(9, 'out')
 const pin10 = new Gpio(10, 'out')
 const pin11 = new Gpio(11, 'out')
 const pin12 = new Gpio(12, 'out')
-
-const pin13 = new Gpio(13, 'in', 'both')
-const pin14 = new Gpio(14, 'in', 'both')
-const pin15 = new Gpio(15, 'in', 'both')
-const pin16 = new Gpio(16, 'in', 'both')
+const pin13 = new Gpio(13, 'out')
+const pin14 = new Gpio(14, 'out')
+const pin15 = new Gpio(15, 'out')
+const pin16 = new Gpio(16, 'out')
 const pin17 = new Gpio(17, 'in', 'both')
-
-const pin18 = new Gpio(18, 'out')
-const pin19 = new Gpio(19, 'out')
-const pin20 = new Gpio(20, 'out')
-const pin21 = new Gpio(21, 'out')
-const pin22 = new Gpio(22, 'out')
-const pin23 = new Gpio(23, 'out')
+const pin18 = new Gpio(18, 'in', 'both')
+const pin19 = new Gpio(19, 'in', 'both')
+const pin20 = new Gpio(20, 'in', 'both')
+const pin21 = new Gpio(21, 'in', 'both')
+const pin22 = new Gpio(22, 'in', 'both')
+const pin23 = new Gpio(23, 'in', 'both')
 const pin24 = new Gpio(24, 'out')
 const pin25 = new Gpio(25, 'out')
 
@@ -42,17 +39,17 @@ setLow(pin9)
 setLow(pin10)
 setLow(pin11)
 setLow(pin12)
-// setLow(pin13)
-// setLow(pin14)
-// setLow(pin15)
-// setLow(pin16)
+setLow(pin13)
+setLow(pin14)
+setLow(pin15)
+setLow(pin16)
 // setLow(pin17)
-setLow(pin18)
-setLow(pin19)
-setLow(pin20)
-setLow(pin21)
-setLow(pin22)
-setLow(pin23)
+// setLow(pin18)
+// setLow(pin19)
+// setLow(pin20)
+// setLow(pin21)
+// setLow(pin22)
+// setLow(pin23)
 setLow(pin24)
 setLow(pin25)
 
@@ -89,10 +86,13 @@ function vend(usedEv){
             highLow(pin6)
             break
         case 'D':
-            highLow(pin7)
+            highLow(pin12)
             break
         case 'E':
-            highLow(pin8)
+            highLow(pin13)
+            break
+        case 'F':
+            highLow(pin16)
             break
     }
 }
