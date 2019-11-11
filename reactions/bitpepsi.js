@@ -62,14 +62,14 @@ var dispenseStream = Kefir.stream(emitter => {
   .onValue(vend)
 
 function setLow(pin){
-    pin.writeSync(0)
+    pin.writeSync(1)
 }
 
 function highLow(pin){
     console.log('pin triggered')
-    pin.writeSync(1)
+    pin.writeSync(0)
     setTimeout( ()=> {
-        pin.writeSync(0)
+        pin.writeSync(1)
     }, 1000)
 }
 
