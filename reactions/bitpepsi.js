@@ -30,6 +30,24 @@ const pin23 = new Gpio(23, 'in', 'both')
 const pin24 = new Gpio(24, 'out')
 const pin25 = new Gpio(25, 'out')
 
+pin2.writeSync(1)
+pin3.writeSync(1)
+pin4.writeSync(1)
+pin5.writeSync(1)
+pin6.writeSync(1)
+pin7.writeSync(1)
+pin8.writeSync(1)
+pin9.writeSync(1)
+pin10.writeSync(1)
+pin11.writeSync(1)
+pin12.writeSync(1)
+pin13.writeSync(1)
+pin14.writeSync(1)
+pin15.writeSync(1)
+pin16.writeSync(1)
+pin24.writeSync(1)
+pin25.writeSync(1)
+
 var emit
 var dispenseStream = Kefir.stream(emitter => {
     emit = emitter.emit
