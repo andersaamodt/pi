@@ -41,6 +41,15 @@ function highLow(pin){
     }, 1000)
 }
 
+function highLowLonger(pin){
+    console.log('mp pin triggered')
+    pin.writeSync(0)
+    setTimeout( ()=> {
+        pin.writeSync(1)
+    }, 3000)
+}
+
+
 function vend(usedEv){
     console.log("vending:", usedEv)
     switch (usedEv.notes.toUpperCase()){
@@ -54,39 +63,39 @@ function vend(usedEv){
             highLow(pin5)
             break
         case 'B1':
-            highLow(pin9)
+            highLowLonger(pin9)
             highLow(pin7)
             break
         case 'B2':
-            highLow(pin9)
+            highLowLonger(pin9)
             highLow(pin6)
             break
         case 'B3':
-            highLow(pin9)
+            highLowLonger(pin9)
             highLow(pin5)
             break
         case 'C1':
-            highLow(pin8)
+            highLowLonger(pin8)
             highLow(pin7)
             break
         case 'C2':
-            highLow(pin8)
+            highLowLonger(pin8)
             highLow(pin6)
             break
         case 'C3':
-            highLow(pin8)
+            highLowLonger(pin8)
             highLow(pin5)
             break
         case 'C4':
-            highLow(pin8)
+            highLowLonger(pin8)
             highLow(pin4)
             break
         case 'C5':
-            highLow(pin8)
+            highLowLonger(pin8)
             highLow(pin3)
             break
         case 'C6':
-            highLow(pin8)
+            highLowLonger(pin8)
             highLow(pin2)
             break
     }
