@@ -43,51 +43,51 @@ function highLow(pin){
 
 function vend(usedEv){
     console.log("vending:", usedEv)
-    switch (usedEv.notes){
+    switch (usedEv.notes.toUpperCase()){
         case 'A1':
-            highLow(pin4)
-            break
-        case 'A2':
-            highLow(pin5)
-            break
-        case 'A3':
-            highLow(pin6)
-            break
-        case 'B1':
-            highLow(pin2)
-            highLow(pin4)
-            break
-        case 'B2':
-            highLow(pin2)
-            highLow(pin5)
-            break
-        case 'B3':
-            highLow(pin2)
-            highLow(pin6)
-            break
-        case 'C1':
-            highLow(pin3)
-            highLow(pin4)
-            break
-        case 'C2':
-            highLow(pin3)
-            highLow(pin5)
-            break
-        case 'C3':
-            highLow(pin3)
-            highLow(pin6)
-            break
-        case 'C4':
-            highLow(pin3)
             highLow(pin7)
             break
-        case 'C5':
-            highLow(pin3)
+        case 'A2':
+            highLow(pin6)
+            break
+        case 'A3':
+            highLow(pin5)
+            break
+        case 'B1':
+            highLow(pin9)
+            highLow(pin7)
+            break
+        case 'B2':
+            highLow(pin9)
+            highLow(pin6)
+            break
+        case 'B3':
+            highLow(pin9)
+            highLow(pin5)
+            break
+        case 'C1':
             highLow(pin8)
+            highLow(pin7)
+            break
+        case 'C2':
+            highLow(pin8)
+            highLow(pin6)
+            break
+        case 'C3':
+            highLow(pin8)
+            highLow(pin5)
+            break
+        case 'C4':
+            highLow(pin8)
+            highLow(pin4)
+            break
+        case 'C5':
+            highLow(pin8)
+            highLow(pin3)
             break
         case 'C6':
-            highLow(pin3)
-            highLow(pin9)
+            highLow(pin8)
+            highLow(pin2)
             break
     }
 }
