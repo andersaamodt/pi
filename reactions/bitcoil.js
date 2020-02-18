@@ -54,49 +54,49 @@ function vend(usedEv){
     console.log("vending:", usedEv)
     switch (usedEv.notes.toUpperCase()){
         case 'A1':
-            highLow(pin7)
+            highLow(pin2)
             break
         case 'A2':
-            highLow(pin6)
+            highLow(pin3)
             break
         case 'A3':
-            highLow(pin5)
-            break
-        case 'B1':
-            highLowLonger(pin9)
-            highLow(pin7)
-            break
-        case 'B2':
-            highLowLonger(pin9)
-            highLow(pin6)
-            break
-        case 'B3':
-            highLowLonger(pin9)
-            highLow(pin5)
-            break
-        case 'C1':
-            highLowLonger(pin8)
-            highLow(pin7)
-            break
-        case 'C2':
-            highLowLonger(pin8)
-            highLow(pin6)
-            break
-        case 'C3':
-            highLowLonger(pin8)
-            highLow(pin5)
-            break
-        case 'C4':
-            highLowLonger(pin8)
             highLow(pin4)
             break
-        case 'C5':
+        case 'B1':
+            highLowLonger(pin8)
+            highLow(pin20)
+            break
+        case 'B2':
             highLowLonger(pin8)
             highLow(pin3)
             break
-        case 'C6':
+        case 'B3':
             highLowLonger(pin8)
+            highLow(pin4)
+            break
+        case 'C1':
+            highLowLonger(pin9)
             highLow(pin2)
+            break
+        case 'C2':
+            highLowLonger(pin9)
+            highLow(pin3)
+            break
+        case 'C3':
+            highLowLonger(pin9)
+            highLow(pin4)
+            break
+        case 'C4':
+            highLowLonger(pin9)
+            highLow(pin5)
+            break
+        case 'C5':
+            highLowLonger(pin9)
+            highLow(pin6)
+            break
+        case 'C6':
+            highLowLonger(pin9)
+            highLow(pin7)
             break
     }
 }
