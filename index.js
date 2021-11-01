@@ -38,15 +38,14 @@ utils.auth(config.brainLocation, config.resourceId, config.secret, (err, token)=
   socket.on('connect', ()=> {
       console.log("attempting socket auth ")
       socket.emit('authentication', { token })
-      socket.on('authenticated', () => {
-          console.log('Connected with authentication!!!!*!~!!*~!~!~*~~')
-          socket.on('eventstream', reaction)
-      })
-
-      socket.on("disconnect", function() {
-          console.log('removing listeners')
-          throw new Error('socket disconnected')
-      })
   })
   
+  socket.on('authenticated', () => {
+      console.log('Connected with authentication!!!!*!~!!*~!~!~*~~')
+      socket.on('eventstream', reaction)
+  })
+
+  socket.on("disconnect", function() {
+      console.log('lost connection')
+  })
 })
